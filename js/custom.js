@@ -5,9 +5,9 @@ $('#nav').affix({
 });
 
 $('#nav').affix({
-  offset: {
-    bottom: ($('footer').outerHeight(true) + 
-            $('.application').outerHeight(true)) + 
+    offset: {
+        bottom: ($('footer').outerHeight(true) +
+                $('.application').outerHeight(true)) +
             40
-  }
+    }
 });
