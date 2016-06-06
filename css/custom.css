@@ -1,11 +1,7 @@
 body {
-  padding-top: 30px;
+  padding-top: 5px;
   padding-bottom: 30px;
   position: relative;
-}
-
-.nav .active {
-  background: #eee;
 }
 
 .nav .nav {
@@ -25,12 +21,6 @@ body {
   margin: 0 5px 0 2px;
 }
 
-.nav .nav .active a,
-.nav .nav .active:hover a,
-.nav .nav .active:focus a {
-  padding-left: 30px;
-  border-left: 5px solid black;
-}
 
 .nav .nav .active span,
 .nav .nav .active:hover span,
@@ -58,4 +48,23 @@ body {
   .affix-bottom {
     width: 263px;
   }
+}
+
+.nav-pills > .active > a,
+.nav-pills > .active > a:hover,.nav-pills > li > a:hover {
+  text-decoration: none;
+  border-radius:0px;
+  border-bottom-width: 4px;
+  border-bottom-style: solid;
+  border-bottom-color: #551A8B;
+  color: #333 !important;
+  background-color: transparent !important;
+}
+.nav-pills > li > a{
+  border-radius:0px;
+  color: inherit;
+  border-radius:0px;
+  border-bottom-width: 4px;
+  border-bottom-style: solid;
+  border-bottom-color: transparent;
 }
