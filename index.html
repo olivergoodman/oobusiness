@@ -32,6 +32,56 @@
 
 <body data-spy="scroll" data-target=".scrollspy">
 
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Contact Us</h4>
+        </div>
+        <div class="modal-body">
+          <div class="row marketing">
+            <div class="col-lg-4">
+              <img class="img-circle" src="img/andrew.jpg" width="140" height="140">
+              <h2>Andrew Tang</h2>
+              <a href="mailto:AndrewTang2017@u.northwestern.edu" type="button" class="btn btn-default btn-lg">
+                <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Email
+              </a>
+              <a href="https://github.com/tangdrew" target="tangdrew" type="button" class="btn btn-default btn-lg">
+                <img src="img/github-512.png" width="18" height="18" id="github"> GitHub
+              </a>
+            </div>
+            <div class="col-lg-4">
+              <img class="img-circle" src="img/olly.jpg" width="140" height="140">
+              <h2>Oliver Goodman</h2>
+              <a href="mailto:OliverGoodman2017@u.northwestern.edu" type="button" class="btn btn-default btn-lg">
+                <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Email
+              </a>
+              <a href="https://github.com/olivergoodman" target="olivergoodman" type="button" class="btn btn-default btn-lg">
+                <img src="img/github-512.png" width="18" height="18" id="github"> GitHub
+              </a>
+            </div>
+            <div class="col-lg-4">
+              <img class="img-circle" src="img/letsch.jpg" width="140" height="140">
+              <h2>Daniel Letscher</h2>
+              <a href="mailto:DanielLetscher2017@u.northwestern.edu" type="button" class="btn btn-default btn-lg">
+                <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Email
+              </a>
+              <a href="https://github.com/Letsch22" target="Letsch22" type="button" class="btn btn-default btn-lg">
+                <img src="img/github-512.png" width="18" height="18" id="github"> GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="container">
     <div class="col-md-3 scrollspy">
       <ul id="nav" class="nav nav-pills nav-stacked hidden-xs hidden-sm" data-spy="affix">
@@ -56,25 +106,13 @@
       </ul>
       <!-- end of main navigation -->
     </div>
-    <!-- Main component for a primary marketing message or call to action -->
     <div class="col-md-9">
       <div class="jumbotron" id="home">
         <h1>Predicting Business Closure</h1>
         <h3>This project assesses the likelihood of a given business listed on Yelp going out of business.</br>
           <small>Built by Andrew Tang, Oliver Goodman, and Daniel Letscher for <a href="http://www.cs.northwestern.edu/~ddowney/courses/349_Spring2016/" target="349">EECS 349</a> at <a href="http://www.northwestern.edu/" target="NU">Northwestern University</a></small>
         </h3>
-        <!-- Single button -->
-        <div class="btn-group">
-          <button type="button" class="btn btn-default btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
-            Contact Us <span class="caret"></span>
-          </button>
-          <ul class="dropdown-menu">
-            <li><a href="mailto:AndrewTang2017@u.northwestern.edu">Andrew Tang</a></li>
-            <li><a href="mailto:OliverGoodman2017@u.northwestern.edu">Oliver Goodman</a></li>
-            <li><a href="mailto:DanielLetscher2017@u.northwestern.edu">Daniel Letscher</a></li>
-          </ul>
-        </div>
+        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Contact Us</button>
       </div>
       <div class="row marketing">
         <div class="col-lg-6">
