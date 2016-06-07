@@ -4,6 +4,10 @@ body {
   position: relative;
 }
 
+p {
+  font-size: 15px;
+}
+
 .nav .nav {
   display: none;
 }
@@ -70,3 +74,18 @@ body {
   border-bottom-color: transparent;
 }
 
+.marketing .col-lg-5 {
+  text-align: center;
+}
+
+.marketing .col-lg-4 {
+  text-align: center;
+}
+
+.marketing .col-lg-5 blockquote {
+  text-align: left;
+}
+
+.marketing .col-lg-4 blockquote {
+  text-align: left;
+}
