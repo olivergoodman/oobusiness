@@ -74,18 +74,10 @@ p {
   border-bottom-color: transparent;
 }
 
-.marketing .col-lg-5 {
+.marketing .col-lg-6 {
   text-align: center;
 }
 
-.marketing .col-lg-4 {
-  text-align: center;
-}
-
-.marketing .col-lg-5 blockquote {
-  text-align: left;
-}
-
-.marketing .col-lg-4 blockquote {
+.marketing .col-lg-6 blockquote {
   text-align: left;
 }
