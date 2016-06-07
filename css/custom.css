@@ -81,3 +81,11 @@ p {
 .marketing .col-lg-6 blockquote {
   text-align: left;
 }
+
+.marketing .col-lg-4 {
+  text-align: center;
+}
+
+#github {
+  margin-top: -5px;
+}
