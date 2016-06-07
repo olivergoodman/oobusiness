@@ -10,7 +10,7 @@
   <meta name="author" content="Andrew Tang, Oliver Goodman, and Daniel Letscher">
   <link rel="icon" href="img/favicon.ico">
 
-  <title>oobusiness</title>
+  <title>EECS 349: Predicting Business Closure</title>
 
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
@@ -32,41 +32,6 @@
 
 <body data-spy="scroll" data-target=".scrollspy">
 
-  <!-- Fixed navbar -->
-  <!--
-  <nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-        <a class="navbar-brand" href="#">oobusiness</a>
-      </div>
-      <div id="navbar" class="navbar-collapse collapse">
-        <ul class="nav navbar-nav">
-          <li class="active"><a href="#">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#contact">Contact</a></li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a href="#">Action</a></li>
-              <li><a href="#">Another action</a></li>
-              <li><a href="#">Something else here</a></li>
-              <li role="separator" class="divider"></li>
-              <li class="dropdown-header">Nav header</li>
-              <li><a href="#">Separated link</a></li>
-              <li><a href="#">One more separated link</a></li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav> -->
-
   <div class="container">
     <div class="col-md-3 scrollspy">
       <ul id="nav" class="nav nav-pills nav-stacked hidden-xs hidden-sm" data-spy="affix">
@@ -74,55 +39,96 @@
           <a href="#home">Home</a>
         </li>
         <li>
-          <a href="#sec0">Problem Statement</a>
+          <a href="#prob">Problem Statement</a>
         </li>
         <li>
-          <a href="#sec1">Solution Overview</a>
+          <a href="#sol">Solution Overview</a>
         </li>
         <li>
-          <a href="#sec2">Testing and Training</a>
-        </li>  
+          <a href="#test">Testing and Training</a>
+        </li>
         <li>
-          <a href="#sec3">Results</a>
-        </li>  
-
-      </ul><!-- end of main navigation -->
+          <a href="#res">Results</a>
+        </li>
+        <li>
+          <a href="#report">Final Report</a>
+        </li>
+      </ul>
+      <!-- end of main navigation -->
     </div>
     <!-- Main component for a primary marketing message or call to action -->
     <div class="col-md-9">
-    <div class="jumbotron" id="home">
-      <h1>oobusiness</h1>
-      <h2>This project assesses the likelihood of a given business listed on Yelp going out of business.</h2>
-      <p>By Andrew Tang, Oliver Goodman, and Daniel Letscher for EECS 349 at Northwestern University</p>
-      <!-- Single button -->
-      <div class="btn-group">
-        <button type="button" class="btn btn-default btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <div class="jumbotron" id="home">
+        <h1>Predicting Business Closure</h1>
+        <h3>This project assesses the likelihood of a given business listed on Yelp going out of business.</br>
+          <small>Built by Andrew Tang, Oliver Goodman, and Daniel Letscher for <a href="http://www.cs.northwestern.edu/~ddowney/courses/349_Spring2016/" target="349">EECS 349</a> at <a href="http://www.northwestern.edu/" target="NU">Northwestern University</a></small>
+        </h3>
+        <!-- Single button -->
+        <div class="btn-group">
+          <button type="button" class="btn btn-default btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
             Contact Us <span class="caret"></span>
           </button>
-        <ul class="dropdown-menu">
-          <li><a href="mailto:AndrewTang2017@u.northwestern.edu">Andrew Tang</a></li>
-          <li><a href="mailto:OliverGoodman2017@u.northwestern.edu">Oliver Goodman</a></li>
-          <li><a href="mailto:DanielLetscher2017@u.northwestern.edu">Daniel Letscher</a></li>
-        </ul>
+          <ul class="dropdown-menu">
+            <li><a href="mailto:AndrewTang2017@u.northwestern.edu">Andrew Tang</a></li>
+            <li><a href="mailto:OliverGoodman2017@u.northwestern.edu">Oliver Goodman</a></li>
+            <li><a href="mailto:DanielLetscher2017@u.northwestern.edu">Daniel Letscher</a></li>
+          </ul>
+        </div>
       </div>
+      <div class="row marketing">
+        <div class="col-lg-6">
+          <img class="img-circle" src="img/fords.jpg" width="140" height="140">
+          <h2>Ford's Theatre</br><small>Washington, DC</small></h2>
+          <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+          <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+          <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+          <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+          <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+          <blockquote>
+            <p>Was murdered here. Would not recommend.</p>
+            <footer>Abe L., August 8, 2011</footer>
+          </blockquote>
+        </div>
+        <div class="col-lg-6">
+          <img class="img-circle" src="img/taco.jpg" width="140" height="140">
+          <h2>Taco Santo</br><small>Brooklyn, NY</small></h2>
+          <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+          <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+          <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+          <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+          <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+          <blockquote>
+            <p>The entire kitchen and wait staff saw an ice cream truck and ran outside, leaving me alone in the restaurant. 10 minutes later they all came back with ice cream cones.</p>
+            <p>I still can't believe this actually happened.</p>
+            <footer>Ross F., September 7, 2014</footer>
+          </blockquote>
+        </div>
+      </div>
+      <h1 class="page-header" id="prob">Problem Statement</h1>
+      <p>Yelp serves as a great resource to research the quality of many restaurants and businesses. However, given the competitive environment associated with operating a personal business, it is not uncommon for owners to be forced to close their doors,
+        only to be quickly replaced with another business. The goal of our project was to use data from the Yelp Dataset Challenge to predict whether a given business will close down in the near future.</p>
+      <p>Our project is important because we could help solve a problem that confounds Evanston residents each year: why do so many restaurants close? The outcome of this project could help solve larger economic problems behind the restaurant business in
+        America. Many of these places are likely to be family-owned, and thus have big implications for the healthiness of small business in America.</p>
+      <h1 class="page-header" id="sol">Solution Overview</h1>
+      <p>Ipsum deserunt tempor dolore fugiat nulla dolore nisi est. Proident veniam labore Lorem sit quis nostrud consequat dolore labore pariatur ex dolor ea sint. Reprehenderit deserunt laboris anim elit laboris duis dolor incididunt.</p>
+      <ul>
+        <li>Laborum adipisicing et nisi labore.</li>
+        <li>Aute sint dolor voluptate aute non mollit labore velit occaecat eu do sit.</li>
+        <li>Proident incididunt fugiat proident ex eu aliquip sint.</li>
+      </ul>
+      <h1 class="page-header" id="test">Testing and Training</h1>
+      <p>Ullamco sunt nostrud proident pariatur labore consequat esse magna laboris consectetur cupidatat pariatur in. Ex labore do tempor exercitation ut occaecat. Qui ut ipsum exercitation dolore ut irure qui. Mollit dolor elit aute duis et consectetur
+        sit irure non.</p>
+      <h1 class="page-header" id="res">Results</h1>
+      <p>Dolore dolor eu excepteur mollit mollit non pariatur elit duis ullamco reprehenderit nostrud cupidatat id. Dolor tempor quis nulla amet adipisicing labore proident mollit in. Irure est fugiat nostrud quis commodo pariatur duis qui pariatur.</p>
+      <img src="img/graph.jpg" class="img-rounded" alt="Cinque Terre">
+      <h1 class="page-header" id="report">Final Report</h1>
+      <p>We have created a detailed final report that goes more in-depth on our methodology, dataset, and results. Click below to download the PDF.</p>
+      <a href="img/report.pdf" target="report" type="button" class="btn btn-default btn-lg">
+        <span class="glyphicon glyphicon-save-file" aria-hidden="true"></span> Download
+      </a>
     </div>
-    <h1 id="sec0">Problem Statement</h1>
-    <p>Ea aliqua et tempor ea in laborum aute. Amet ipsum commodo anim nostrud velit minim. Esse exercitation eu aliquip aliquip. Officia aliquip consectetur officia magna sit aliquip aliqua quis duis mollit. Ut sint ad ex quis nostrud adipisicing aute fugiat enim minim. Commodo magna ut amet mollit quis ipsum et proident do.</p>
-    <p>Exercitation ea consectetur mollit aliqua nulla ad amet labore eiusmod consequat. Aliqua exercitation eiusmod reprehenderit quis laboris tempor magna adipisicing velit nulla culpa magna. Nulla consequat sint consectetur consequat voluptate ut elit.</p>
-    <h1 id="sec1">Solution Overview</h1>
-    <p>Ipsum deserunt tempor dolore fugiat nulla dolore nisi est. Proident veniam labore Lorem sit quis nostrud consequat dolore labore pariatur ex dolor ea sint. Reprehenderit deserunt laboris anim elit laboris duis dolor incididunt.</p>
-    <ul>
-      <li>Laborum adipisicing et nisi labore.</li>
-      <li>Aute sint dolor voluptate aute non mollit labore velit occaecat eu do sit.</li>
-      <li>Proident incididunt fugiat proident ex eu aliquip sint.</li>
-    </ul>
-    <h1 id="sec2">Testing and training</h1>
-    <p>Ullamco sunt nostrud proident pariatur labore consequat esse magna laboris consectetur cupidatat pariatur in. Ex labore do tempor exercitation ut occaecat. Qui ut ipsum exercitation dolore ut irure qui. Mollit dolor elit aute duis et consectetur sit irure non.</p>
-    <h1 id="sec3">Results</h1>
-    <p>Dolore dolor eu excepteur mollit mollit non pariatur elit duis ullamco reprehenderit nostrud cupidatat id. Dolor tempor quis nulla amet adipisicing labore proident mollit in. Irure est fugiat nostrud quis commodo pariatur duis qui pariatur.</p>
-    <img src="img/graph.jpg" class="img-rounded" alt="Cinque Terre">
-  </div>
   </div>
   <!-- /container -->
 </body>

@@ -4,6 +4,10 @@ body {
   position: relative;
 }
 
+p {
+  font-size: 15px;
+}
+
 .nav .nav {
   display: none;
 }
@@ -21,7 +25,6 @@ body {
   margin: 0 5px 0 2px;
 }
 
-
 .nav .nav .active span,
 .nav .nav .active:hover span,
 .nav .nav .active:focus span {
@@ -36,7 +39,7 @@ body {
 @media (min-width: 1200px) {
   .affix {
     width: 263px;
-  }         
+  }
 }
 
 .affix-bottom {
@@ -50,21 +53,31 @@ body {
   }
 }
 
-.nav-pills > .active > a,
-.nav-pills > .active > a:hover,.nav-pills > li > a:hover {
+.nav-pills> .active> a,
+.nav-pills> .active> a:hover,
+.nav-pills> li> a:hover {
   text-decoration: none;
-  border-radius:0px;
+  border-radius: 0px;
   border-bottom-width: 4px;
   border-bottom-style: solid;
   border-bottom-color: #551A8B;
   color: #333 !important;
   background-color: transparent !important;
 }
-.nav-pills > li > a{
-  border-radius:0px;
+
+.nav-pills> li> a {
+  border-radius: 0px;
   color: inherit;
-  border-radius:0px;
+  border-radius: 0px;
   border-bottom-width: 4px;
   border-bottom-style: solid;
   border-bottom-color: transparent;
+}
+
+.marketing .col-lg-6 {
+  text-align: center;
+}
+
+.marketing .col-lg-6 blockquote {
+  text-align: left;
 }
