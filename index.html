@@ -26,6 +26,9 @@
 
   <!-- Custom styles for this site -->
   <link href="css/custom.css" rel="stylesheet">
+  
+  <!-- Chart.JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.min.js"></script>
 
   <script src="js/custom.js"></script>
 </head>
@@ -204,11 +207,112 @@
             </tr>
           </tbody>
         </table>
-
+        <p>We found that the most important feature in determining if a business will close down is its star-rating on Yelp. </p>
 
       </div>
-
-      <img src="img/graph.jpg" class="img-rounded" alt="Cinque Terre">
+      <canvas id="train_acc_chart" width="500" height="250"></canvas>
+      <canvas id="test_acc_chart" width="500" height="250"></canvas>
+      <canvas id="precision_chart" width="500" height="250"></canvas>
+      <canvas id="recall_chart" width="500" height="250"></canvas>
+      <canvas id="train_time_chart" width="500" height="250"></canvas>
+      <script>
+       var train_acc_data = {
+            labels: ["Linear Regression", "Decision Tree", "Naive Bayes"],
+            datasets: [
+                {
+                    label: "Training Accuracy",
+                    backgroundColor: "rgba(255,99,132,0.2)",
+                    borderColor: "rgba(255,99,132,1)",
+                    borderWidth: 1,
+                    hoverBackgroundColor: "rgba(255,99,132,0.4)",
+                    hoverBorderColor: "rgba(255,99,132,1)",
+                    data: [0.86368, 0.86366, 0.151463]
+                }
+            ]
+        };
+        var test_acc_data = {
+            labels: ["Linear Regression", "Decision Tree", "Naive Bayes"],
+            datasets: [
+                {
+                    label: "Test Accuracy",
+                    backgroundColor: "rgba(255,99,132,0.2)",
+                    borderColor: "rgba(255,99,132,1)",
+                    borderWidth: 1,
+                    hoverBackgroundColor: "rgba(255,99,132,0.4)",
+                    hoverBorderColor: "rgba(255,99,132,1)",
+                    data: [0.86373, 0.86343, 0.14749]
+                }
+            ]
+        };
+        var precision_data = {
+            labels: ["Linear Regression", "Decision Tree", "Naive Bayes"],
+            datasets: [
+                {
+                    label: "Precision",
+                    backgroundColor: "rgba(255,99,132,0.2)",
+                    borderColor: "rgba(255,99,132,1)",
+                    borderWidth: 1,
+                    hoverBackgroundColor: "rgba(255,99,132,0.4)",
+                    hoverBorderColor: "rgba(255,99,132,1)",
+                    data: [0.86384, 0.86383, 0.94000]
+                }
+            ]
+        };
+        var recall_data = {
+            labels: ["Linear Regression", "Decision Tree", "Naive Bayes"],
+            datasets: [
+                {
+                    label: "Recall",
+                    backgroundColor: "rgba(255,99,132,0.2)",
+                    borderColor: "rgba(255,99,132,1)",
+                    borderWidth: 1,
+                    hoverBackgroundColor: "rgba(255,99,132,0.4)",
+                    hoverBorderColor: "rgba(255,99,132,1)",
+                    data: [0.99985, 0.99945, 0.01405]
+                }
+            ]
+        };
+        var train_time_data = {
+            labels: ["Linear Regression", "Decision Tree", "Naive Bayes"],
+            datasets: [
+                {
+                    label: "Training Time",
+                    backgroundColor: "rgba(255,99,132,0.2)",
+                    borderColor: "rgba(255,99,132,1)",
+                    borderWidth: 1,
+                    hoverBackgroundColor: "rgba(255,99,132,0.4)",
+                    hoverBorderColor: "rgba(255,99,132,1)",
+                    data: [55.413, 12.507, 5.791]
+                }
+            ]
+        };
+        var train_acc_ctx = document.getElementById("train_acc_chart").getContext("2d");
+        var test_acc_ctx = document.getElementById("test_acc_chart").getContext("2d");
+        var precision_ctx = document.getElementById("precision_chart").getContext("2d");
+        var recall_ctx = document.getElementById("recall_chart").getContext("2d");
+        var train_time_ctx = document.getElementById("train_time_chart").getContext("2d");
+        var train_acc_BarChart = new Chart(train_acc_ctx, {
+            type: 'bar',
+            data: train_acc_data
+        });
+        var test_acc_BarChart = new Chart(test_acc_ctx, {
+            type: 'bar',
+            data: test_acc_data
+        });
+        var precision_BarChart = new Chart(precision_ctx, {
+            type: 'bar',
+            data: precision_data
+        });
+        var recall_BarChart = new Chart(recall_ctx, {
+            type: 'bar',
+            data: recall_data
+        });
+        var train_time_BarChart = new Chart(train_time_ctx, {
+            type: 'bar',
+            data: train_time_data
+        });
+      </script>
+      
       <h1 class="page-header" id="report">Final Report</h1>
       <p>We have created a detailed final report that goes more in-depth on our methodology, dataset, and results. Click below to download the PDF.</p>
       <a href="img/report.pdf" target="report" type="button" class="btn btn-default btn-lg">
