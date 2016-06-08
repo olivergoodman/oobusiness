@@ -89,3 +89,7 @@ p {
 #github {
   margin-top: -5px;
 }
+
+.img-responsive {
+  max-width: 50%;
+}
