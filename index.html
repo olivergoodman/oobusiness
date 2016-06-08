@@ -174,126 +174,68 @@
       <p>Below are the accuracy, precision, recall, and training time scores for our three models:</p>
       <canvas id="chart" width="500" height="250"></canvas>
       <script>
-        var train_acc_data = {
-          labels: ["Linear Regression", "Decision Tree", "Naive Bayes"],
-          datasets: [{
-            label: "Training Accuracy",
-            backgroundColor: "rgba(255,99,132,0.2)",
-            borderColor: "rgba(255,99,132,1)",
-            borderWidth: 1,
-            hoverBackgroundColor: "rgba(255,99,132,0.4)",
-            hoverBorderColor: "rgba(255,99,132,1)",
-            data: [0.86368, 0.86366, 0.151463]
-          }]
-        };
-        var test_acc_data = {
-          labels: ["Linear Regression", "Decision Tree", "Naive Bayes"],
-          datasets: [{
-            label: "Test Accuracy",
-            backgroundColor: "rgba(255,99,132,0.2)",
-            borderColor: "rgba(255,99,132,1)",
-            borderWidth: 1,
-            hoverBackgroundColor: "rgba(255,99,132,0.4)",
-            hoverBorderColor: "rgba(255,99,132,1)",
-            data: [0.86373, 0.86343, 0.14749]
-          }]
-        };
-        var precision_data = {
-          labels: ["Linear Regression", "Decision Tree", "Naive Bayes"],
-          datasets: [{
-            label: "Precision",
-            backgroundColor: "rgba(255,99,132,0.2)",
-            borderColor: "rgba(255,99,132,1)",
-            borderWidth: 1,
-            hoverBackgroundColor: "rgba(255,99,132,0.4)",
-            hoverBorderColor: "rgba(255,99,132,1)",
-            data: [0.86384, 0.86383, 0.94000]
-          }]
-        };
-        var recall_data = {
-          labels: ["Linear Regression", "Decision Tree", "Naive Bayes"],
-          datasets: [{
-            label: "Recall",
-            backgroundColor: "rgba(255,99,132,0.2)",
-            borderColor: "rgba(255,99,132,1)",
-            borderWidth: 1,
-            hoverBackgroundColor: "rgba(255,99,132,0.4)",
-            hoverBorderColor: "rgba(255,99,132,1)",
-            data: [0.99985, 0.99945, 0.01405]
-          }]
-        };
-        var train_time_data = {
-          labels: ["Linear Regression", "Decision Tree", "Naive Bayes"],
-          datasets: [{
-            label: "Training Time",
-            backgroundColor: "rgba(255,99,132,0.2)",
-            borderColor: "rgba(255,99,132,1)",
-            borderWidth: 1,
-            hoverBackgroundColor: "rgba(255,99,132,0.4)",
-            hoverBorderColor: "rgba(255,99,132,1)",
-            data: [55.413, 12.507, 5.791]
-          }]
-        };
         var data = {
           labels: ["Linear Regression", "Decision Tree", "Naive Bayes"],
           datasets: [{
             label: "Training Accuracy",
             type: "bar",
-            backgroundColor: "#FF0000",
-            borderColor: "#FF7F00",
+            backgroundColor: "#ff9999",
+            borderColor: "#ff6666",
             borderWidth: 1,
-            hoverBackgroundColor: "#FF007F",
-            hoverBorderColor: "#FF0000",
+            hoverBackgroundColor: "#ffcccc",
+            hoverBorderColor: "#ff9999",
             data: [0.86368, 0.86366, 0.151463]
-          },
-          {
+          }, {
             label: "Test Accuracy",
             type: "bar",
-            backgroundColor: "#0000FF",
-            borderColor: "#7F00FF",
+            backgroundColor: "#99ccff",
+            borderColor: "#66b3ff",
             borderWidth: 1,
-            hoverBackgroundColor: "#007FFF",
-            hoverBorderColor: "#0000FF",
+            hoverBackgroundColor: "#cce6ff",
+            hoverBorderColor: "#99ccff",
             data: [0.86373, 0.86343, 0.14749]
-          },
-          {
+          }, {
             label: "Precision",
             type: "bar",
-            backgroundColor: "#FFFF00",
-            borderColor: "#7FFF00",
+            backgroundColor: "#ffff99",
+            borderColor: "#ffff66",
             borderWidth: 1,
-            hoverBackgroundColor: "#FF7F00",
-            hoverBorderColor: "#FFFF00",
+            hoverBackgroundColor: "#ffffcc",
+            hoverBorderColor: "#ffff99",
             data: [0.86384, 0.86383, 0.94000]
-          },
-          {
+          }, {
             label: "Recall",
             type: "bar",
-            backgroundColor: "#008000",
-            borderColor: "#008040",
+            backgroundColor: "#66ff99",
+            borderColor: "#33ff77",
             borderWidth: 1,
-            hoverBackgroundColor: "#3F8000",
-            hoverBorderColor: "#008000",
+            hoverBackgroundColor: "#99ffbb",
+            hoverBorderColor: "#66ff99",
             data: [0.99985, 0.99945, 0.01405]
-          },
-          {
+          }, {
             label: "Training Time (relative)",
             type: "bar",
-            backgroundColor: "#800080",
-            borderColor: "#80003F",
+            backgroundColor: "#9966ff",
+            borderColor: "#7733ff",
             borderWidth: 1,
-            hoverBackgroundColor: "#3F0080",
-            hoverBorderColor: "#800080",
-            data: [55.413/60, 12.507/60, 5.791/60]
+            hoverBackgroundColor: "#bb99ff",
+            hoverBorderColor: "#9966ff",
+            data: [55.413 / 60, 12.507 / 60, 5.791 / 60]
           }]
         }
         var ctx = document.getElementById("chart").getContext("2d");
         var BarChart = new Chart(ctx, {
+          responsive: true,
           type: 'bar',
-          data: data
+          data: data,
+          options: {
+            hover: {
+              mode: "single"
+            }
+          }
         });
       </script>
-      <p>We found that the most important feature in determining if a business will close down is its star-rating on Yelp. To visualize this finding, here is the decision tree that was trained:</p>
+      <p>For our key finding, we found that the most important feature in determining if a business will close down is its star-rating on Yelp. To visualize this finding, below is the decision tree that was trained. Notice that the root node splits on <code>stars</code>.</p>
       <div id="tree-container"><img src="img/tree.png" height="450px"></div>
       <h1 class="page-header" id="report">Final Report</h1>
       <p>We have created a detailed final report that goes more in-depth on our methodology, dataset, and results. Click below to download the PDF.</p>
