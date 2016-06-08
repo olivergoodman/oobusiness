@@ -149,7 +149,7 @@
       <p>Our project is important because we could help solve a problem that confounds Evanston residents each year: why do so many restaurants close? The outcome of this project could help solve larger economic problems behind the restaurant business in
         America. Many of these places are likely to be family-owned, and thus have big implications for the healthiness of small business in America.</p>
       <h1 class="page-header" id="sol">Solution Overview</h1>
-      <p>Our dataset includes information from over 77,000 businesses from 10 cities across the world. We wanted to explore which features about businesses on Yelp were influential in determining whether a business would close down or not. Our original dataset consisted of over 80 attributes, many of which were only relevant to a certain type of business. As a result, we aimed to focus on features that applied to most of the businesses in our dataset.</p>
+      <p>The three models we used to test were logistic regression, decision tree, and a Naive Bayes network.  To select our models and classify our data, we used the scikit-learn machine learning package for python.  This package allowed us to process our csv file using the various models, outputting the training accuracy, test accuracy, test precision and test recall and training time for each model.</p>
       <p>We used the following features from our dataset:</p>
       <ul>
         <li><code>open</code> &ndash; boolean value indicating if the business is currently open or closed down. This was our main determining attribute</li>
@@ -160,10 +160,9 @@
         <li><code>longitude</code> &ndash; float value of the business’ longitude</li>
         <li><code>latitude</code> &ndash; float value of the business’ latitude</li>
       </ul>
-      <p>The three models we used to test were logistic regression, decision tree, and a Naive Bayes network.  To select our models and classify our data, we used the scikit-learn machine learning package for python.  This package allowed us to process our csv file using the various models, outputting the training accuracy, test accuracy, test precision and test recall and training time for each model.</p>
       <h1 class="page-header" id="test">Testing and Training</h1>
-      <p>Ullamco sunt nostrud proident pariatur labore consequat esse magna laboris consectetur cupidatat pariatur in. Ex labore do tempor exercitation ut occaecat. Qui ut ipsum exercitation dolore ut irure qui. Mollit dolor elit aute duis et consectetur
-        sit irure non.</p>
+      <p>Our dataset includes information from over 77,000 businesses from 10 cities across the world. We wanted to explore which features about businesses on Yelp were influential in determining whether a business would close down or not. Our original dataset consisted of over 80 attributes, many of which were only relevant to a certain type of business. As a result, we aimed to focus on features that applied to most of the businesses in our dataset.</p> 
+      <p>When testing and training our various models, we looked to see how accurate each algorithm was able to classify businesses as currently operating or closed down. Since the majority of the instances in our dataset consisted of businesses that were open, we paid attention to precision and recall scores as well as accuracy. We experimented with different parameters for each of our models, such as the depth limit for our decision tree, to try to improve the classification results. </p>
       <h1 class="page-header" id="res">Results</h1>
       <p>Dolore dolor eu excepteur mollit mollit non pariatur elit duis ullamco reprehenderit nostrud cupidatat id. Dolor tempor quis nulla amet adipisicing labore proident mollit in. Irure est fugiat nostrud quis commodo pariatur duis qui pariatur.</p>
       <img src="img/graph.jpg" class="img-rounded" alt="Cinque Terre">
