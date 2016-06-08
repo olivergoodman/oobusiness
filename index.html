@@ -149,11 +149,16 @@
       <p>Our project is important because we could help solve a problem that confounds Evanston residents each year: why do so many restaurants close? The outcome of this project could help solve larger economic problems behind the restaurant business in
         America. Many of these places are likely to be family-owned, and thus have big implications for the healthiness of small business in America.</p>
       <h1 class="page-header" id="sol">Solution Overview</h1>
-      <p>Ipsum deserunt tempor dolore fugiat nulla dolore nisi est. Proident veniam labore Lorem sit quis nostrud consequat dolore labore pariatur ex dolor ea sint. Reprehenderit deserunt laboris anim elit laboris duis dolor incididunt.</p>
+      <p>The three models we used to test were logistic regression, decision tree, and a Naive Bayes network.  To select our models and classify our data, we used the scikit-learn machine learning package for python.  This package allowed us to process our csv file using the various models, outputting the training accuracy, test accuracy, test precision and test recall and training time for each model.</p>
+      <p>We used the following features from our dataset:</p>
       <ul>
-        <li>Laborum adipisicing et nisi labore.</li>
-        <li>Aute sint dolor voluptate aute non mollit labore velit occaecat eu do sit.</li>
-        <li>Proident incididunt fugiat proident ex eu aliquip sint.</li>
+        <li><code>open</code> &ndash; boolean value indicating if the business is currently open or closed down. This was our main determining attribute</li>
+        <li><code>stars</code> &ndash; float value between 0.0 to 5.0 indicating a business's rating</li>
+        <li><code>review_count</code> &ndash; integer value indicating how many Yelp reviews that business has</li>
+        <li><code>state</code> &ndash; dummy variable representing what state a business is located in</li>
+        <li><code>city</code> &ndash; dummy variable representing what city a business is located in</li>
+        <li><code>longitude</code> &ndash; float value of the business’ longitude</li>
+        <li><code>latitude</code> &ndash; float value of the business’ latitude</li>
       </ul>
       <h1 class="page-header" id="test">Testing and Training</h1>
       <p>Ullamco sunt nostrud proident pariatur labore consequat esse magna laboris consectetur cupidatat pariatur in. Ex labore do tempor exercitation ut occaecat. Qui ut ipsum exercitation dolore ut irure qui. Mollit dolor elit aute duis et consectetur
