@@ -89,3 +89,11 @@ p {
 #github {
   margin-top: -5px;
 }
+
+.marketing .img-responsive {
+  max-width: 50%;
+}
+
+#tree-container {
+  overflow-x: auto !important;
+}

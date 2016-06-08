@@ -27,6 +27,9 @@
   <!-- Custom styles for this site -->
   <link href="css/custom.css" rel="stylesheet">
 
+  <!-- Chart.JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.min.js"></script>
+
   <script src="js/custom.js"></script>
 </head>
 
@@ -44,7 +47,7 @@
         <div class="modal-body">
           <div class="row marketing">
             <div class="col-lg-4">
-              <img class="img-circle" src="img/andrew.jpg" width="140" height="140">
+              <img class="img-circle img-responsive center-block" src="img/andrew.jpg">
               <h2>Andrew Tang</h2>
               <a href="mailto:AndrewTang2017@u.northwestern.edu" type="button" class="btn btn-default btn-lg">
                 <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Email
@@ -54,7 +57,7 @@
               </a>
             </div>
             <div class="col-lg-4">
-              <img class="img-circle" src="img/olly.jpg" width="140" height="140">
+              <img class="img-circle img-responsive center-block" src="img/olly.jpg">
               <h2>Oliver Goodman</h2>
               <a href="mailto:OliverGoodman2017@u.northwestern.edu" type="button" class="btn btn-default btn-lg">
                 <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Email
@@ -64,7 +67,7 @@
               </a>
             </div>
             <div class="col-lg-4">
-              <img class="img-circle" src="img/letsch.jpg" width="140" height="140">
+              <img class="img-circle img-responsive center-block" src="img/letsch.JPG">
               <h2>Daniel Letscher</h2>
               <a href="mailto:DanielLetscher2017@u.northwestern.edu" type="button" class="btn btn-default btn-lg">
                 <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Email
@@ -116,7 +119,7 @@
       </div>
       <div class="row marketing">
         <div class="col-lg-6">
-          <img class="img-circle" src="img/fords.jpg" width="140" height="140">
+          <img class="img-circle img-responsive center-block" src="img/fords.jpg">
           <h2>Ford's Theatre</br><small>Washington, DC</small></h2>
           <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
           <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
@@ -129,7 +132,7 @@
           </blockquote>
         </div>
         <div class="col-lg-6">
-          <img class="img-circle" src="img/taco.jpg" width="140" height="140">
+          <img class="img-circle img-responsive center-block" src="img/taco.jpg">
           <h2>Taco Santo</br><small>Brooklyn, NY</small></h2>
           <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
           <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
@@ -149,21 +152,152 @@
       <p>Our project is important because we could help solve a problem that confounds Evanston residents each year: why do so many restaurants close? The outcome of this project could help solve larger economic problems behind the restaurant business in
         America. Many of these places are likely to be family-owned, and thus have big implications for the healthiness of small business in America.</p>
       <h1 class="page-header" id="sol">Solution Overview</h1>
-      <p>Ipsum deserunt tempor dolore fugiat nulla dolore nisi est. Proident veniam labore Lorem sit quis nostrud consequat dolore labore pariatur ex dolor ea sint. Reprehenderit deserunt laboris anim elit laboris duis dolor incididunt.</p>
+      <p>The three models we used to test were logistic regression, decision tree, and a Naive Bayes network. To select our models and classify our data, we used the scikit-learn machine learning package for python. This package allowed us to process our
+        csv file using the various models, outputting the training accuracy, test accuracy, test precision and test recall and training time for each model.</p>
+      <p>We used the following features from our dataset:</p>
       <ul>
-        <li>Laborum adipisicing et nisi labore.</li>
-        <li>Aute sint dolor voluptate aute non mollit labore velit occaecat eu do sit.</li>
-        <li>Proident incididunt fugiat proident ex eu aliquip sint.</li>
+        <li><code>open</code> &ndash; boolean value indicating if the business is currently open or closed down. This was our main determining attribute</li>
+        <li><code>stars</code> &ndash; float value between 0.0 to 5.0 indicating a business's rating</li>
+        <li><code>review_count</code> &ndash; integer value indicating how many Yelp reviews that business has</li>
+        <li><code>state</code> &ndash; dummy variable representing what state a business is located in</li>
+        <li><code>city</code> &ndash; dummy variable representing what city a business is located in</li>
+        <li><code>longitude</code> &ndash; float value of the business’ longitude</li>
+        <li><code>latitude</code> &ndash; float value of the business’ latitude</li>
       </ul>
       <h1 class="page-header" id="test">Testing and Training</h1>
-      <p>Ullamco sunt nostrud proident pariatur labore consequat esse magna laboris consectetur cupidatat pariatur in. Ex labore do tempor exercitation ut occaecat. Qui ut ipsum exercitation dolore ut irure qui. Mollit dolor elit aute duis et consectetur
-        sit irure non.</p>
+      <p><a href="https://www.yelp.com/dataset_challenge" target="dataset">Our dataset</a> includes information from over 77,000 businesses from 10 cities across the world. We wanted to explore which features about businesses on Yelp were influential in
+        determining whether a business would close down or not. Our original dataset consisted of over 80 attributes, many of which were only relevant to a certain type of business. As a result, we aimed to focus on features that applied to most of the
+        businesses in our dataset.</p>
+      <p>When testing and training our various models, we looked to see how accurate each algorithm was able to classify businesses as currently operating or closed down. Since the majority of the instances in our dataset consisted of businesses that were
+        open, we paid attention to precision and recall scores as well as accuracy. We experimented with different parameters for each of our models, such as the depth limit for our decision tree, to try to improve the classification results. </p>
       <h1 class="page-header" id="res">Results</h1>
-      <p>Dolore dolor eu excepteur mollit mollit non pariatur elit duis ullamco reprehenderit nostrud cupidatat id. Dolor tempor quis nulla amet adipisicing labore proident mollit in. Irure est fugiat nostrud quis commodo pariatur duis qui pariatur.</p>
-      <img src="img/graph.jpg" class="img-rounded" alt="Cinque Terre">
+      <p>Below are the accuracy, precision, recall, and training time scores for our three models:</p>
+      <canvas id="chart" width="500" height="250"></canvas>
+      <script>
+        var train_acc_data = {
+          labels: ["Linear Regression", "Decision Tree", "Naive Bayes"],
+          datasets: [{
+            label: "Training Accuracy",
+            backgroundColor: "rgba(255,99,132,0.2)",
+            borderColor: "rgba(255,99,132,1)",
+            borderWidth: 1,
+            hoverBackgroundColor: "rgba(255,99,132,0.4)",
+            hoverBorderColor: "rgba(255,99,132,1)",
+            data: [0.86368, 0.86366, 0.151463]
+          }]
+        };
+        var test_acc_data = {
+          labels: ["Linear Regression", "Decision Tree", "Naive Bayes"],
+          datasets: [{
+            label: "Test Accuracy",
+            backgroundColor: "rgba(255,99,132,0.2)",
+            borderColor: "rgba(255,99,132,1)",
+            borderWidth: 1,
+            hoverBackgroundColor: "rgba(255,99,132,0.4)",
+            hoverBorderColor: "rgba(255,99,132,1)",
+            data: [0.86373, 0.86343, 0.14749]
+          }]
+        };
+        var precision_data = {
+          labels: ["Linear Regression", "Decision Tree", "Naive Bayes"],
+          datasets: [{
+            label: "Precision",
+            backgroundColor: "rgba(255,99,132,0.2)",
+            borderColor: "rgba(255,99,132,1)",
+            borderWidth: 1,
+            hoverBackgroundColor: "rgba(255,99,132,0.4)",
+            hoverBorderColor: "rgba(255,99,132,1)",
+            data: [0.86384, 0.86383, 0.94000]
+          }]
+        };
+        var recall_data = {
+          labels: ["Linear Regression", "Decision Tree", "Naive Bayes"],
+          datasets: [{
+            label: "Recall",
+            backgroundColor: "rgba(255,99,132,0.2)",
+            borderColor: "rgba(255,99,132,1)",
+            borderWidth: 1,
+            hoverBackgroundColor: "rgba(255,99,132,0.4)",
+            hoverBorderColor: "rgba(255,99,132,1)",
+            data: [0.99985, 0.99945, 0.01405]
+          }]
+        };
+        var train_time_data = {
+          labels: ["Linear Regression", "Decision Tree", "Naive Bayes"],
+          datasets: [{
+            label: "Training Time",
+            backgroundColor: "rgba(255,99,132,0.2)",
+            borderColor: "rgba(255,99,132,1)",
+            borderWidth: 1,
+            hoverBackgroundColor: "rgba(255,99,132,0.4)",
+            hoverBorderColor: "rgba(255,99,132,1)",
+            data: [55.413, 12.507, 5.791]
+          }]
+        };
+        var data = {
+          labels: ["Linear Regression", "Decision Tree", "Naive Bayes"],
+          datasets: [{
+            label: "Training Accuracy",
+            type: "bar",
+            backgroundColor: "#FF0000",
+            borderColor: "#FF7F00",
+            borderWidth: 1,
+            hoverBackgroundColor: "#FF007F",
+            hoverBorderColor: "#FF0000",
+            data: [0.86368, 0.86366, 0.151463]
+          },
+          {
+            label: "Test Accuracy",
+            type: "bar",
+            backgroundColor: "#0000FF",
+            borderColor: "#7F00FF",
+            borderWidth: 1,
+            hoverBackgroundColor: "#007FFF",
+            hoverBorderColor: "#0000FF",
+            data: [0.86373, 0.86343, 0.14749]
+          },
+          {
+            label: "Precision",
+            type: "bar",
+            backgroundColor: "#FFFF00",
+            borderColor: "#7FFF00",
+            borderWidth: 1,
+            hoverBackgroundColor: "#FF7F00",
+            hoverBorderColor: "#FFFF00",
+            data: [0.86384, 0.86383, 0.94000]
+          },
+          {
+            label: "Recall",
+            type: "bar",
+            backgroundColor: "#008000",
+            borderColor: "#008040",
+            borderWidth: 1,
+            hoverBackgroundColor: "#3F8000",
+            hoverBorderColor: "#008000",
+            data: [0.99985, 0.99945, 0.01405]
+          },
+          {
+            label: "Training Time (relative)",
+            type: "bar",
+            backgroundColor: "#800080",
+            borderColor: "#80003F",
+            borderWidth: 1,
+            hoverBackgroundColor: "#3F0080",
+            hoverBorderColor: "#800080",
+            data: [55.413/60, 12.507/60, 5.791/60]
+          }]
+        }
+        var ctx = document.getElementById("chart").getContext("2d");
+        var BarChart = new Chart(ctx, {
+          type: 'bar',
+          data: data
+        });
+      </script>
+      <p>We found that the most important feature in determining if a business will close down is its star-rating on Yelp. To visualize this finding, here is the decision tree that was trained:</p>
+      <div id="tree-container"><img src="img/tree.png" height="450px"></div>
       <h1 class="page-header" id="report">Final Report</h1>
       <p>We have created a detailed final report that goes more in-depth on our methodology, dataset, and results. Click below to download the PDF.</p>
-      <a href="img/report.pdf" target="report" type="button" class="btn btn-default btn-lg">
+      <a href="img/FinalProjectReport.pdf" target="report" type="button" class="btn btn-default btn-lg">
         <span class="glyphicon glyphicon-save-file" aria-hidden="true"></span> Download
       </a>
     </div>
