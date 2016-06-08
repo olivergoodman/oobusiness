@@ -118,8 +118,7 @@ X_train_std = stdsc.fit_transform(X_train)
 X_test_std = stdsc.transform(X_test)
 
 #CV for learning curve
-cv = cross_validation.ShuffleSplit(X_std.shape[0], n_iter=10, test_size=0.3, random_state=0)
-
+cv = cross_validation.ShuffleSplit(X_std.shape[0], n_iter=1, test_size=0.3, random_state=0)
 #Train logistic regression using L2 regularization
 print "===========Logistic Regression=========="
 from sklearn.linear_model import LogisticRegression
@@ -141,25 +140,28 @@ print "Test Recall: ", recall
 print "===========Decision Tree=========="
 from sklearn.tree import DecisionTreeClassifier
 from sklearn import tree
-dt = DecisionTreeClassifier(random_state=0)
+dt = DecisionTreeClassifier(random_state=0, max_depth=5)
 a = datetime.datetime.now()
-dt.fit(X_train_std, y_train)
+dt.fit(X_train, y_train)
 b = datetime.datetime.now()
-y_pred_dt = dt.predict(X_test_std)
+y_pred_dt = dt.predict(X_test)
 precision = precision_score(y_test, y_pred_dt)
 recall = recall_score(y_test, y_pred_dt)
 print "Decision Tree Training Time: " + str(b - a)
-print "Training accuracy: ", dt.score(X_train_std, y_train)
-print "Test accuracy: ", dt.score(X_test_std, y_test)
+print "Training accuracy: ", dt.score(X_train, y_train)
+print "Test accuracy: ", dt.score(X_test, y_test)
 print "Test Precision: ", precision
 print "Test Recall: ", recall
 #Export tree visualization
 print "Exporting tree visualization..."
-#tree.export_graphviz(dt,out_file='tree.dot')
+feature_names = list(train.columns.values)
+feature_names.pop(0)
+feature_names.append(" ")
+tree.export_graphviz(dt,out_file='tree.dot',feature_names=feature_names, class_names=["Closed", "Open"])
 #Plotting Learning Curve
 print "Plotting learning curve..."
-title = "Learning Curves (Logistic Regression)"
-plot_learning_curve(dt, title, X, y, ylim=(0.0, 1.01), cv=cv)
+title = "Learning Curves (Decision Tree)"
+plot_learning_curve(dt, title, X, y, ylim=(0.85, 0.9), cv=cv)
 plt.show()
 
 #Train gaussian naive bayes classifier
@@ -194,8 +196,10 @@ print "Test accuracy: ", svm.score(X_test_std, y_test)
 print "Test Precision: ", precision
 print "Test Recall: ", recall
 '''
+
 print "Writing predictions to csv..."
 np.savetxt("pred_lr.csv", y_pred_lr, delimiter=",")
 np.savetxt("pred_dt.csv", y_pred_dt, delimiter=",")
 np.savetxt("pred_gnb.csv", y_pred_gnb, delimiter=",")
 #np.savetxt("pred_lr.csv", y_pred_lr, delimiter=",")
+
