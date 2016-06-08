@@ -26,7 +26,7 @@
 
   <!-- Custom styles for this site -->
   <link href="css/custom.css" rel="stylesheet">
-  
+
   <!-- Chart.JS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.min.js"></script>
 
@@ -152,7 +152,8 @@
       <p>Our project is important because we could help solve a problem that confounds Evanston residents each year: why do so many restaurants close? The outcome of this project could help solve larger economic problems behind the restaurant business in
         America. Many of these places are likely to be family-owned, and thus have big implications for the healthiness of small business in America.</p>
       <h1 class="page-header" id="sol">Solution Overview</h1>
-      <p>The three models we used to test were logistic regression, decision tree, and a Naive Bayes network.  To select our models and classify our data, we used the scikit-learn machine learning package for python.  This package allowed us to process our csv file using the various models, outputting the training accuracy, test accuracy, test precision and test recall and training time for each model.</p>
+      <p>The three models we used to test were logistic regression, decision tree, and a Naive Bayes network. To select our models and classify our data, we used the scikit-learn machine learning package for python. This package allowed us to process our
+        csv file using the various models, outputting the training accuracy, test accuracy, test precision and test recall and training time for each model.</p>
       <p>We used the following features from our dataset:</p>
       <ul>
         <li><code>open</code> &ndash; boolean value indicating if the business is currently open or closed down. This was our main determining attribute</li>
@@ -164,127 +165,78 @@
         <li><code>latitude</code> &ndash; float value of the business’ latitude</li>
       </ul>
       <h1 class="page-header" id="test">Testing and Training</h1>
-      <p><a href="https://www.yelp.com/dataset_challenge" target="dataset">Our dataset</a> includes information from over 77,000 businesses from 10 cities across the world. We wanted to explore which features about businesses on Yelp were influential in determining whether a business would close down or not. Our original dataset consisted of over 80 attributes, many of which were only relevant to a certain type of business. As a result, we aimed to focus on features that applied to most of the businesses in our dataset.</p> 
-      <p>When testing and training our various models, we looked to see how accurate each algorithm was able to classify businesses as currently operating or closed down. Since the majority of the instances in our dataset consisted of businesses that were open, we paid attention to precision and recall scores as well as accuracy. We experimented with different parameters for each of our models, such as the depth limit for our decision tree, to try to improve the classification results. </p>
+      <p><a href="https://www.yelp.com/dataset_challenge" target="dataset">Our dataset</a> includes information from over 77,000 businesses from 10 cities across the world. We wanted to explore which features about businesses on Yelp were influential in
+        determining whether a business would close down or not. Our original dataset consisted of over 80 attributes, many of which were only relevant to a certain type of business. As a result, we aimed to focus on features that applied to most of the
+        businesses in our dataset.</p>
+      <p>When testing and training our various models, we looked to see how accurate each algorithm was able to classify businesses as currently operating or closed down. Since the majority of the instances in our dataset consisted of businesses that were
+        open, we paid attention to precision and recall scores as well as accuracy. We experimented with different parameters for each of our models, such as the depth limit for our decision tree, to try to improve the classification results. </p>
       <h1 class="page-header" id="res">Results</h1>
       <p>Below are the accuracy, precision, recall, and training time scores for our three models:</p>
-      <div class="table-responsive">
-        <table class="table table-bordered">
-          <thead>
-            <tr>
-              <th>Model Type</th>
-              <th>Train Accuracy</th>
-              <th>Test Accuracy</th>
-              <th>Test Precision</th>
-              <th>Test Recall</th>
-              <th>Training Time</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Logistic Regression</td>
-              <td>0.86368</td>
-              <td>0.86373</td>
-              <td>0.86384</td>
-              <td>0.99985</td>
-              <td>0:55.413</td>
-            </tr>
-            <tr>
-              <td>Decision Tree</td>
-              <td>0.86366</td>
-              <td>0.86343</td>
-              <td>0.86383</td>
-              <td>0.99945</td>
-              <td>0:12.507</td>
-            </tr>
-            <tr>
-              <td>Naïve Bayes Net</td>
-              <td>0.151463</td>
-              <td>0.14749</td>
-              <td>0.94000</td>
-              <td>0.01405</td>
-              <td>0:05.791</td>
-            </tr>
-          </tbody>
-        </table>
-        <p>We found that the most important feature in determining if a business will close down is its star-rating on Yelp. </p>
-
-      </div>
       <canvas id="train_acc_chart" width="500" height="250"></canvas>
       <canvas id="test_acc_chart" width="500" height="250"></canvas>
       <canvas id="precision_chart" width="500" height="250"></canvas>
       <canvas id="recall_chart" width="500" height="250"></canvas>
       <canvas id="train_time_chart" width="500" height="250"></canvas>
       <script>
-       var train_acc_data = {
-            labels: ["Linear Regression", "Decision Tree", "Naive Bayes"],
-            datasets: [
-                {
-                    label: "Training Accuracy",
-                    backgroundColor: "rgba(255,99,132,0.2)",
-                    borderColor: "rgba(255,99,132,1)",
-                    borderWidth: 1,
-                    hoverBackgroundColor: "rgba(255,99,132,0.4)",
-                    hoverBorderColor: "rgba(255,99,132,1)",
-                    data: [0.86368, 0.86366, 0.151463]
-                }
-            ]
+        var train_acc_data = {
+          labels: ["Linear Regression", "Decision Tree", "Naive Bayes"],
+          datasets: [{
+            label: "Training Accuracy",
+            backgroundColor: "rgba(255,99,132,0.2)",
+            borderColor: "rgba(255,99,132,1)",
+            borderWidth: 1,
+            hoverBackgroundColor: "rgba(255,99,132,0.4)",
+            hoverBorderColor: "rgba(255,99,132,1)",
+            data: [0.86368, 0.86366, 0.151463]
+          }]
         };
         var test_acc_data = {
-            labels: ["Linear Regression", "Decision Tree", "Naive Bayes"],
-            datasets: [
-                {
-                    label: "Test Accuracy",
-                    backgroundColor: "rgba(255,99,132,0.2)",
-                    borderColor: "rgba(255,99,132,1)",
-                    borderWidth: 1,
-                    hoverBackgroundColor: "rgba(255,99,132,0.4)",
-                    hoverBorderColor: "rgba(255,99,132,1)",
-                    data: [0.86373, 0.86343, 0.14749]
-                }
-            ]
+          labels: ["Linear Regression", "Decision Tree", "Naive Bayes"],
+          datasets: [{
+            label: "Test Accuracy",
+            backgroundColor: "rgba(255,99,132,0.2)",
+            borderColor: "rgba(255,99,132,1)",
+            borderWidth: 1,
+            hoverBackgroundColor: "rgba(255,99,132,0.4)",
+            hoverBorderColor: "rgba(255,99,132,1)",
+            data: [0.86373, 0.86343, 0.14749]
+          }]
         };
         var precision_data = {
-            labels: ["Linear Regression", "Decision Tree", "Naive Bayes"],
-            datasets: [
-                {
-                    label: "Precision",
-                    backgroundColor: "rgba(255,99,132,0.2)",
-                    borderColor: "rgba(255,99,132,1)",
-                    borderWidth: 1,
-                    hoverBackgroundColor: "rgba(255,99,132,0.4)",
-                    hoverBorderColor: "rgba(255,99,132,1)",
-                    data: [0.86384, 0.86383, 0.94000]
-                }
-            ]
+          labels: ["Linear Regression", "Decision Tree", "Naive Bayes"],
+          datasets: [{
+            label: "Precision",
+            backgroundColor: "rgba(255,99,132,0.2)",
+            borderColor: "rgba(255,99,132,1)",
+            borderWidth: 1,
+            hoverBackgroundColor: "rgba(255,99,132,0.4)",
+            hoverBorderColor: "rgba(255,99,132,1)",
+            data: [0.86384, 0.86383, 0.94000]
+          }]
         };
         var recall_data = {
-            labels: ["Linear Regression", "Decision Tree", "Naive Bayes"],
-            datasets: [
-                {
-                    label: "Recall",
-                    backgroundColor: "rgba(255,99,132,0.2)",
-                    borderColor: "rgba(255,99,132,1)",
-                    borderWidth: 1,
-                    hoverBackgroundColor: "rgba(255,99,132,0.4)",
-                    hoverBorderColor: "rgba(255,99,132,1)",
-                    data: [0.99985, 0.99945, 0.01405]
-                }
-            ]
+          labels: ["Linear Regression", "Decision Tree", "Naive Bayes"],
+          datasets: [{
+            label: "Recall",
+            backgroundColor: "rgba(255,99,132,0.2)",
+            borderColor: "rgba(255,99,132,1)",
+            borderWidth: 1,
+            hoverBackgroundColor: "rgba(255,99,132,0.4)",
+            hoverBorderColor: "rgba(255,99,132,1)",
+            data: [0.99985, 0.99945, 0.01405]
+          }]
         };
         var train_time_data = {
-            labels: ["Linear Regression", "Decision Tree", "Naive Bayes"],
-            datasets: [
-                {
-                    label: "Training Time",
-                    backgroundColor: "rgba(255,99,132,0.2)",
-                    borderColor: "rgba(255,99,132,1)",
-                    borderWidth: 1,
-                    hoverBackgroundColor: "rgba(255,99,132,0.4)",
-                    hoverBorderColor: "rgba(255,99,132,1)",
-                    data: [55.413, 12.507, 5.791]
-                }
-            ]
+          labels: ["Linear Regression", "Decision Tree", "Naive Bayes"],
+          datasets: [{
+            label: "Training Time",
+            backgroundColor: "rgba(255,99,132,0.2)",
+            borderColor: "rgba(255,99,132,1)",
+            borderWidth: 1,
+            hoverBackgroundColor: "rgba(255,99,132,0.4)",
+            hoverBorderColor: "rgba(255,99,132,1)",
+            data: [55.413, 12.507, 5.791]
+          }]
         };
         var train_acc_ctx = document.getElementById("train_acc_chart").getContext("2d");
         var test_acc_ctx = document.getElementById("test_acc_chart").getContext("2d");
@@ -292,27 +244,28 @@
         var recall_ctx = document.getElementById("recall_chart").getContext("2d");
         var train_time_ctx = document.getElementById("train_time_chart").getContext("2d");
         var train_acc_BarChart = new Chart(train_acc_ctx, {
-            type: 'bar',
-            data: train_acc_data
+          type: 'bar',
+          data: train_acc_data
         });
         var test_acc_BarChart = new Chart(test_acc_ctx, {
-            type: 'bar',
-            data: test_acc_data
+          type: 'bar',
+          data: test_acc_data
         });
         var precision_BarChart = new Chart(precision_ctx, {
-            type: 'bar',
-            data: precision_data
+          type: 'bar',
+          data: precision_data
         });
         var recall_BarChart = new Chart(recall_ctx, {
-            type: 'bar',
-            data: recall_data
+          type: 'bar',
+          data: recall_data
         });
         var train_time_BarChart = new Chart(train_time_ctx, {
-            type: 'bar',
-            data: train_time_data
+          type: 'bar',
+          data: train_time_data
         });
       </script>
-      
+      <p>We found that the most important feature in determining if a business will close down is its star-rating on Yelp. To visualize this finding, here is the decision tree that was trained:</p>
+      <div id="tree-container"><img src="img/tree.png" height="450px"></div>
       <h1 class="page-header" id="report">Final Report</h1>
       <p>We have created a detailed final report that goes more in-depth on our methodology, dataset, and results. Click below to download the PDF.</p>
       <a href="img/report.pdf" target="report" type="button" class="btn btn-default btn-lg">
